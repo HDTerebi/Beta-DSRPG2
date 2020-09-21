@@ -507,7 +507,7 @@ end, {
 loadstring(game:HttpGet("https://raw.githubusercontent.com/chimnguu/ngu/master/dsrpg2.lua"))()
 
 game.StarterGui:SetCore("SendNotification", {
-Title = "DSRPG 2 Gui";
+Title = "Beta DSRPG 2 Gui";
 Text = "Made By Terebi#0001",
 Icon = "rbxassetid://5472203252";
 Duration = 6;
