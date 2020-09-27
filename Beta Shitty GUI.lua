@@ -68,7 +68,7 @@ for i,v in pairs(game.Workspace.AreaPlaces:GetChildren()) do
        table.insert(AreasAndTowns, v.Name)
     end
 
-local Finity = loadstring(game:HttpGet("http://finity.vip/scripts/finity_lib.lua"))()
+local Finity = loadstring(game:HttpGet("https://pastebin.com/raw/xpT46ucU"))()
    local FinityWindow = Finity.new(true)
 FinityWindow.ChangeToggleKey(Enum.KeyCode.RightAlt)
 local FarmingCategory = FinityWindow:Category("Farming")
