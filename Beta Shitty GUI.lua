@@ -362,10 +362,81 @@ end)
 InstantQuestsSettings:Cheat("Label", "Spoof Click Any Of The Following 5 Items")
 
 InstantQuestsSettings:Cheat("Dropdown", "Quest NPC", function(Value7)
-fireclickdetector(game.Workspace.NPC.Quests[Value7]:FindFirstChild("ClickDetector"))
+fireclickdetector(game:GetService("ReplicatedStorage").RenderCache[Value7]:FindFirstChild("ClickDetector"))
 end, {
-	options = QuestNPCs
-	})
+	options = {
+		"Cuansety2",
+		"Tinho",
+"Daisuke",
+"Giorno",
+"Hiroyuki",
+"Sota",
+"Jin",
+"Vinsho",
+"Haruki",
+"Nanika",
+"Lisa",
+"Kinko",
+"Erina",
+"Pacific",
+"Chris",
+"Kenjo",
+"Higoshi",
+"Kumiko",
+"Akari",
+"Himari",
+"Shirino",
+"Satamoto",
+"Higoshi Demon Corps",
+"Jaru",
+"Aiya",
+"Elissa",
+"Nikone",
+"Kenji",
+"Naozumi",
+"DemonQ1",
+"Muzan Tanjiro Quest",
+"Tanjiro Kamado",
+"Tsuko",
+"Haru",
+"Fuji",
+"Issey",
+"Kane",
+"Kai",
+"Morino",
+"Rio",
+"Seiji",
+"Ramu",
+"Mimamoto",
+"Rose",
+"Koji",
+"Renchi",
+"Sachi",
+"Sumire",
+"Namiko",
+"Liz",
+"Maro",
+"Toyotomi",
+"Sara",
+"Nomi",
+"Papa Franku",
+"Senku",
+"Ninya",
+"Monko",
+"Mieko",
+"Kamei",
+"Namba",
+"Tengan",
+"Oye",
+"Tomio",
+"Maki",
+"Kanda",
+"Kinko2",
+"Momoko",
+"Nishihara",
+"Cuansety2"
+	}
+})
 	
 InstantQuestsSettings:Cheat("Dropdown", "Quest Target", function(Value7)
 fireclickdetector(game.Workspace.NPC.Targets[Value7]:FindFirstChild("ClickDetector"))
@@ -533,10 +604,3 @@ Text = "Made By Terebi#0001",
 Icon = "rbxassetid://5472203252";
 Duration = 6;
 })
-
-while wait(0.1) do
-game.Lighting.FogEnd = 1000000
-for i,v in pairs(game.Lighting:GetDescendants()) do
-	v:Destroy()
-end
-end
