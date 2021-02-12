@@ -101,8 +101,8 @@ CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker2:Cheat("Label", "Chim#2575 @ discord.gg - Auto Farm Mob Maker")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.08")
-VersionSettings:Cheat("Label", "Lightning Now In MISC, Most TP Issues, Spoof Click Quest NPC From Anymwhere!")
+VersionSettings:Cheat("Label", "v0.07")
+VersionSettings:Cheat("Label", "Less Kicked From Server Problems & Lighting Moved To MISC")
 
 FarmingSettings:Cheat(
 	"Checkbox", -- Type
@@ -161,7 +161,8 @@ end
 )
 
 QuestsSettings:Cheat("Dropdown", "Quest Target NPC TP", function(Value)
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((tweenspeed), Enum.EasingStyle.Linear)
+local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Targets[Value].Position).magnitude
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Targets[Value]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
@@ -186,7 +187,8 @@ end, {
 	})
 	
 QuestsSettings:Cheat("Dropdown", "Quest NPC TP", function(Value2)
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((tweenspeed), Enum.EasingStyle.Linear)
+local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Quests[Value2].Position).magnitude
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Quests[Value2]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
@@ -243,7 +245,8 @@ end, {
 	})
 
 TeacherSettings:Cheat("Dropdown", "Teacher NPC TP", function(Value4)
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((tweenspeed), Enum.EasingStyle.Linear)
+local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Teacher[Value4].Position).magnitude
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Teacher[Value4]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
@@ -268,7 +271,8 @@ end, {
 	})
 
 DroppedSettings:Cheat("Dropdown", "Spawned NPC TP", function(Value5)
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((tweenspeed), Enum.EasingStyle.Linear)
+local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Spawnables[Value5].Position).magnitude
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Spawnables[Value5]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
@@ -297,7 +301,8 @@ end, {
 })
 	
 MobsSettings:Cheat("Dropdown", "Mob TP", function(Value6)
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((tweenspeed), Enum.EasingStyle.Linear)
+local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.Live[Value6].Position).magnitude
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.Live[Value6]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
