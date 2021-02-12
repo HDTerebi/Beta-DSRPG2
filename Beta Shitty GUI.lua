@@ -101,8 +101,8 @@ CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker2:Cheat("Label", "Chim#2575 @ discord.gg - Auto Farm Mob Maker")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.07")
-VersionSettings:Cheat("Label", "Less Kicked From Server Problems & Lighting Moved To MISC")
+VersionSettings:Cheat("Label", "v0.08")
+VersionSettings:Cheat("Label", "Lightning Now In MISC, Most TP Issues, Spoof Click Quest NPC From Anymwhere!")
 
 FarmingSettings:Cheat(
 	"Checkbox", -- Type
