@@ -594,6 +594,7 @@ MiscSettings:Cheat(
 	function(Light) -- Callback function
 		Spam8 = Light
 		while Spam8 do wait()
+			game.Lighting.FogEnd = 1000000
 		for i,v in pairs(game.Lighting:GetDescendants()) do
 		v:Destroy()
 		end
