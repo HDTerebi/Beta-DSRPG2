@@ -10,7 +10,7 @@ VirtualUser:CaptureController()
 VirtualUser:ClickButton2(Vector2.new())
 end)
 
-local speed = 7
+local travelSpeed = 140
 local Mouse = game.Players.LocalPlayer:GetMouse()
 
 local Katana = "Katana"
@@ -19,7 +19,6 @@ local Plr = game:GetService("Players").LocalPlayer
 local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:wait()
 local hm = char:FindFirstChild("HumanoidRootPart")
 local dist = (hm.Position).magnitude
-local tweenspeed = speed
 local Noclipping = nil
 Clip = false
 
@@ -102,8 +101,8 @@ CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker2:Cheat("Label", "Chim#2575 @ discord.gg - Auto Farm Mob Maker")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.06")
-VersionSettings:Cheat("Label", "Added Flower Thing & Fixed Noclip")
+VersionSettings:Cheat("Label", "v0.07")
+VersionSettings:Cheat("Label", "Less Kicked From Server Problems & Lighting Moved To MISC")
 
 FarmingSettings:Cheat(
 	"Checkbox", -- Type
@@ -177,7 +176,7 @@ end
         end
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(tweenspeed)
+wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -202,7 +201,7 @@ end
         end
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(tweenspeed)
+wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -218,7 +217,8 @@ end, {
 	})
 	
 QuestsSettings:Cheat("Dropdown", "Area TP", function(Value3)
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((tweenspeed), Enum.EasingStyle.Linear)
+local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.AreaPlaces[Value3].Position).magnitude
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.AreaPlaces[Value3].Position)})
 		tween:Play()
@@ -233,7 +233,7 @@ end
         end
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(tweenspeed)
+wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -258,7 +258,7 @@ end
         end
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(tweenspeed)
+wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -283,7 +283,7 @@ end
         end
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(tweenspeed)
+wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -312,7 +312,7 @@ end
         end
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(tweenspeed)
+wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -512,6 +512,19 @@ end, {
 	placeholder = "10"
 	})
 	
+MiscSettings:Cheat(
+	"Checkbox", -- Type
+	"Clear Lighting Enabled", -- Name
+	function(Light) -- Callback function
+		Spam8 = Light
+		while Spam8 do wait()
+		for i,v in pairs(game.Lighting:GetDescendants()) do
+		v:Destroy()
+		end
+		end
+		end
+)
+	
 loadstring(game:HttpGet("https://raw.githubusercontent.com/chimnguu/ngu/master/dsrpg2.lua"))()
 
 game.StarterGui:SetCore("SendNotification", {
@@ -521,7 +534,9 @@ Icon = "rbxassetid://5472203252";
 Duration = 6;
 })
 
+while wait(0.1) do
 game.Lighting.FogEnd = 1000000
 for i,v in pairs(game.Lighting:GetDescendants()) do
 	v:Destroy()
-	end
+end
+end
