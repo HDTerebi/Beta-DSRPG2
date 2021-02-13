@@ -10,7 +10,7 @@ VirtualUser:CaptureController()
 VirtualUser:ClickButton2(Vector2.new())
 end)
 
-local travelSpeed = 140
+local travelSpeed = 160
 local Mouse = game.Players.LocalPlayer:GetMouse()
 
 local Katana = "Katana"
@@ -101,8 +101,8 @@ CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker2:Cheat("Label", "Chim#2575 @ discord.gg - Auto Farm Mob Maker")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.07")
-VersionSettings:Cheat("Label", "Less Kicked From Server Problems & Lighting Moved To MISC")
+VersionSettings:Cheat("Label", "v0.08")
+VersionSettings:Cheat("Label", "Fixed Noclip + TP Issues FOR GOOD...HOPEFULLY!")
 
 FarmingSettings:Cheat(
 	"Checkbox", -- Type
@@ -167,21 +167,13 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Targets[Value]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
 		local function NoclipLoop()
-        if Clip == false and Plr.Character ~= nil then
-		game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
-for _, child in pairs(Plr.Character:GetDescendants()) do
-    if child:IsA("BasePart") and child.CanCollide == true then
-	   				child.CanCollide = false
-    end
-end
-        end
+        game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
 wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
-	Clip = true
 end, {
 	options = QuestTargets
 	})
@@ -193,21 +185,13 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Quests[Value2]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
 		local function NoclipLoop()
-        if Clip == false and Plr.Character ~= nil then
-		game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
-for _, child in pairs(Plr.Character:GetDescendants()) do
-    if child:IsA("BasePart") and child.CanCollide == true then
-	   				child.CanCollide = false
-    end
-end
-        end
+        game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
 wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
-	Clip = true
 end, {
 	options = QuestNPCs
 	})
@@ -225,21 +209,13 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.AreaPlaces[Value3].Position)})
 		tween:Play()
 		local function NoclipLoop()
-        if Clip == false and Plr.Character ~= nil then
-            game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
-for _, child in pairs(Plr.Character:GetDescendants()) do
-    if child:IsA("BasePart") and child.CanCollide == true then
-	   				child.CanCollide = false
-    end
-end
-        end
+        game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
 wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
-	Clip = true
 end, {
 	options = AreasAndTowns
 	})
@@ -251,21 +227,13 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Teacher[Value4]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
 		local function NoclipLoop()
-        if Clip == false and Plr.Character ~= nil then
-		game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
-for _, child in pairs(Plr.Character:GetDescendants()) do
-    if child:IsA("BasePart") and child.CanCollide == true then
-	   				child.CanCollide = false
-    end
-end
-        end
+        game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
 wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
-	Clip = true
 end, {
 	options = TeacherNPCs
 	})
@@ -277,21 +245,13 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Spawnables[Value5]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
 		local function NoclipLoop()
-        if Clip == false and Plr.Character ~= nil then
-		game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
-for _, child in pairs(Plr.Character:GetDescendants()) do
-    if child:IsA("BasePart") and child.CanCollide == true then
-	   				child.CanCollide = false
-    end
-end
-        end
+        game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
 wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
-	Clip = true
 end, {
 	options = {
 		"Muzan",
@@ -307,21 +267,13 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.Live[Value6]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
 		local function NoclipLoop()
-        if Clip == false and Plr.Character ~= nil then
-		game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
-for _, child in pairs(Plr.Character:GetDescendants()) do
-    if child:IsA("BasePart") and child.CanCollide == true then
-	   				child.CanCollide = false
-    end
-end
-        end
+        game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
 wait(distance/travelSpeed)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
-	Clip = true
 end, {
 	options = Mobs
 	})
