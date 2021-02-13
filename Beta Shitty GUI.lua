@@ -101,7 +101,7 @@ CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker2:Cheat("Label", "Chim#2575 @ discord.gg - Auto Farm Mob Maker")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.08")
+VersionSettings:Cheat("Label", "v0.10")
 VersionSettings:Cheat("Label", "Fixed Noclip + TP Issues FOR GOOD...HOPEFULLY!")
 
 FarmingSettings:Cheat(
@@ -175,8 +175,16 @@ if Noclipping then
 		Noclipping:Disconnect()
 	end
 end, {
-	options = QuestTargets
-	})
+	options = {
+		"Tanjiro",
+"Nanuski",
+"Matt",
+"Vinsho Katana",
+"Rice Farmer",
+"Chest",
+"pink guy"
+}
+})
 	
 QuestsSettings:Cheat("Dropdown", "Quest Target NPC TP v2", function(Value)
 local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Targets[Value].Position).magnitude
@@ -193,8 +201,54 @@ if Noclipping then
 		Noclipping:Disconnect()
 	end
 end, {
-	options = QuestTargets
-	})
+	options = {
+		"Higoshi",
+"Bandit",
+"Rock",
+"Nikone Katana",
+"Nezuko",
+"Diavolo (Super Weak)",
+"Glowing Blue Crystal",
+"Oye Katana",
+"Purchase Katana",
+"Vinsho",
+"Yahaba",
+"Abnormal Mutated Demon",
+"Mizunoto (Demon Corp.)",
+"Pacific",
+"Chaos Emerald",
+"vidgamenate",
+"Chris",
+"Swordmen",
+"Higoshi's Picture",
+"Abnormal Demon",
+"Slightly Weak Demon",
+"Weak Demon",
+"Hokkaido Town",
+"Tanjiro Kamado",
+"Mutated Demon",
+"Water Breathing Student",
+"Tinho",
+"Water Breathing Student",
+"Abnormal Demon",
+"Minobu Village",
+"Female Infected Human (Explosion)",
+"Samurai",
+"Beginner Insect Demon Corps",
+"Intermediate Insect Demon Corps",
+"Yellow Thunder",
+"Male Infected Human",
+"Male Infected Human (Swamp)",
+"Issey",
+"Issey Headband",
+"Male Infected Human (Akaza)",
+"Mist Village",
+"Ricefield",
+"Female Infected Human",
+"Butterfly Estate",
+"Rock"
+}
+})
 	
 QuestsSettings:Cheat("Dropdown", "Quest NPC TP", function(Value2)
 local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.ReplicatedStorage.RenderCache[Value2].HumanoidRootPart.Position).magnitude
