@@ -10,7 +10,6 @@ VirtualUser:CaptureController()
 VirtualUser:ClickButton2(Vector2.new())
 end)
 
-local travelSpeed = 200
 local Mouse = game.Players.LocalPlayer:GetMouse()
 
 local Katana = "Katana"
@@ -99,15 +98,16 @@ CreditsMaker:Cheat("Label", "Terebi @ v3rmillion.net")
 CreditsMaker:Cheat("Label", "Terebi#0001 @ discord.gg")
 CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
-CreditsMaker2:Cheat("Label", "Chim#2575 @ discord.gg - Auto Farm Mob Maker")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
 VersionSettings:Cheat("Label", "v0.11")
 VersionSettings:Cheat("Label", "Look In Discord For Changelogs")
 
 local speed = MiscSettings:Cheat("Slider", "Teleportation Speed:", function(Test)
-end, {min = 50, max = 300}), {
+end, {min = 50, max = 350}), {
 	placeholder = "200"
 	}
+	
+speed.value = "200"
 
 FarmingSettings:Cheat(
 	"Checkbox", -- Type
@@ -181,12 +181,12 @@ if Noclipping then
 	end
 end, {
 	options = {
-		"Tanjiro",
-"Nanuski",
+		"Chest",
 "Matt",
-"Vinsho Katana",
+"Nanuski",
 "Rice Farmer",
-"Chest",
+"Tanjiro",
+"Vinsho Katana",
 "pink guy"
 }
 })
@@ -207,51 +207,50 @@ if Noclipping then
 	end
 end, {
 	options = {
-		"Higoshi",
-"Bandit",
-"Rock",
-"Nikone Katana",
-"Nezuko",
-"Diavolo (Super Weak)",
-"Glowing Blue Crystal",
-"Oye Katana",
-"Purchase Katana",
-"Vinsho",
-"Yahaba",
+		"Abnormal Demon",
+"Abnormal Demon",
 "Abnormal Mutated Demon",
-"Mizunoto (Demon Corp.)",
-"Pacific",
-"Chaos Emerald",
-"vidgamenate",
-"Chris",
-"Swordmen",
-"Higoshi's Picture",
-"Abnormal Demon",
-"Slightly Weak Demon",
-"Weak Demon",
-"Hokkaido Town",
-"Tanjiro Kamado",
-"Mutated Demon",
-"Water Breathing Student",
-"Tinho",
-"Water Breathing Student",
-"Abnormal Demon",
-"Minobu Village",
-"Female Infected Human (Explosion)",
-"Samurai",
+"Bandit",
 "Beginner Insect Demon Corps",
-"Intermediate Insect Demon Corps",
-"Yellow Thunder",
-"Male Infected Human",
-"Male Infected Human (Swamp)",
-"Issey",
-"Issey Headband",
-"Male Infected Human (Akaza)",
-"Mist Village",
-"Ricefield",
-"Female Infected Human",
 "Butterfly Estate",
-"Rock"
+"Chaos Emerald",
+"Chris",
+"Diavolo (Super Weak)",
+"Female Infected Human (Explosion)",
+"Female Infected Human",
+"Glowing Blue Crystal",
+"Higoshi",
+"Higoshi's Picture",
+"Hokkaido Town",
+"Intermediate Insect Demon Corps",
+"Issey Headband",
+"Issey",
+"Male Infected Human (Akaza)",
+"Male Infected Human (Swamp)",
+"Male Infected Human",
+"Minobu Village",
+"Mist Village",
+"Mizunoto (Demon Corp.)",
+"Mutated Demon",
+"Nezuko",
+"Nikone Katana",
+"Oye Katana",
+"Pacific",
+"Purchase Katana",
+"Ricefield",
+"Rock",
+"Samurai",
+"Slightly Weak Demon",
+"Swordmen",
+"Tanjiro Kamado",
+"Tinho",
+"Vinsho",
+"Water Breathing Student",
+"Water Breathing Student",
+"Weak Demon",
+"Yahaba",
+"Yellow Thunder",
+"vidgamenate"
 }
 })
 	
@@ -336,24 +335,37 @@ end, {
 		"Nezuko"
 	}
 })
-	
-MobsSettings:Cheat("Dropdown", "Mob TP", function(Value6)
-local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.Live[Value6].HumanoidRootPart.Position).magnitude
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/speed.value), Enum.EasingStyle.Linear)
 
-	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.Live[Value6]:FindFirstChild("HumanoidRootPart").Position)})
-		tween:Play()
-		local function NoclipLoop()
-        game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
-end
-Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(distance/speed.value)
-if Noclipping then
-		Noclipping:Disconnect()
-	end
-end, {
+local mob = MobsSettings:Cheat("Dropdown", "Current Mob Selected", function(Value6)
+end,{
 	options = Mobs
 	})
+	
+MobsSettings:Cheat(
+	"Checkbox", -- Type
+	"Farm Selected Mob", -- Name
+	function(MobFarmFists) -- Callback function
+		Spam666 = MobFarmFists
+		while Spam666 do wait()
+		pcall(function()
+		for i,v in pairs(game.Workspace.Live:GetChildren()) do
+        if v:FindFirstChild("HumanoidRootPart") and v.Name == mob.value then
+            if v.Humanoid.Health > 1 then
+                repeat wait()
+local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).magnitude
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/speed.value), Enum.EasingStyle.Linear)
+
+	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(v:FindFirstChild("HumanoidRootPart").Position + v:FindFirstChild("HumanoidRootPart").CFrame.lookVector * -1.5)})
+		tween:Play()
+        game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
+    until v.Humanoid.Health <= 0
+            end
+        end
+end
+end)
+end
+end
+)
 	
 FarmingSettings:Cheat(
 	"Checkbox", -- Type
@@ -634,8 +646,6 @@ MiscSettings:Cheat(
 		end
 		end
 )
-	
-loadstring(game:HttpGet("https://raw.githubusercontent.com/chimnguu/ngu/master/dsrpg2.lua"))()
 
 game.StarterGui:SetCore("SendNotification", {
 Title = "Beta DSRPG 2 Gui";
