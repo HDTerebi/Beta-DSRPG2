@@ -101,8 +101,13 @@ CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker2:Cheat("Label", "Chim#2575 @ discord.gg - Auto Farm Mob Maker")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.10")
-VersionSettings:Cheat("Label", "Fixed Noclip + TP Issues FOR GOOD...HOPEFULLY!")
+VersionSettings:Cheat("Label", "v0.11")
+VersionSettings:Cheat("Label", "Look In Discord For Changelogs")
+
+local speed = MiscSettings:Cheat("Slider", "Test Speed", function(Test)
+end, {min = 50, max = 300}), {
+	placeholder = "200"
+	}
 
 FarmingSettings:Cheat(
 	"Checkbox", -- Type
@@ -162,7 +167,7 @@ end
 
 QuestsSettings:Cheat("Dropdown", "Quest Target NPC TP", function(Value)
 local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Targets[Value]:FindFirstChild("HumanoidRootPart").Position).magnitude
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/speed.value), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Targets[Value]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
@@ -170,7 +175,7 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
         game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(distance/travelSpeed)
+wait(distance/speed.value)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -188,7 +193,7 @@ end, {
 	
 QuestsSettings:Cheat("Dropdown", "Quest Target NPC TP v2", function(Value)
 local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Targets[Value].Position).magnitude
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/speed.value), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Targets[Value].Position)})
 		tween:Play()
@@ -196,7 +201,7 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
         game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(distance/travelSpeed)
+wait(distance/speed.value)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -252,7 +257,7 @@ end, {
 	
 QuestsSettings:Cheat("Dropdown", "Quest NPC TP", function(Value2)
 local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.ReplicatedStorage.RenderCache[Value2].HumanoidRootPart.Position).magnitude
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/speed.value), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.ReplicatedStorage.RenderCache[Value2]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
@@ -260,7 +265,7 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
         game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(distance/travelSpeed)
+wait(distance/speed.value)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -276,7 +281,7 @@ end, {
 	
 QuestsSettings:Cheat("Dropdown", "Area TP", function(Value3)
 local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.AreaPlaces[Value3].Position).magnitude
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/speed.value), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.AreaPlaces[Value3].Position)})
 		tween:Play()
@@ -284,7 +289,7 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
         game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(distance/travelSpeed)
+wait(distance/speed.value)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -294,7 +299,7 @@ end, {
 
 TeacherSettings:Cheat("Dropdown", "Teacher NPC TP", function(Value4)
 local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Teacher[Value4].HumanoidRootPart.Position).magnitude
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/speed.value), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Teacher[Value4]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
@@ -302,7 +307,7 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
         game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(distance/travelSpeed)
+wait(distance/speed.value)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -312,7 +317,7 @@ end, {
 
 DroppedSettings:Cheat("Dropdown", "Spawned NPC TP", function(Value5)
 local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Spawnables[Value5].HumanoidRootPart.Position).magnitude
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/speed.value), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Spawnables[Value5]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
@@ -320,7 +325,7 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
         game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(distance/travelSpeed)
+wait(distance/speed.value)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -334,7 +339,7 @@ end, {
 	
 MobsSettings:Cheat("Dropdown", "Mob TP", function(Value6)
 local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.Live[Value6].HumanoidRootPart.Position).magnitude
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/speed.value), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.Live[Value6]:FindFirstChild("HumanoidRootPart").Position)})
 		tween:Play()
@@ -342,7 +347,7 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
         game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
 end
 Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-wait(distance/travelSpeed)
+wait(distance/speed.value)
 if Noclipping then
 		Noclipping:Disconnect()
 	end
@@ -611,6 +616,10 @@ for _,v in pairs(game.Workspace.Live[game.Players.LocalPlayer.Name]:GetDescendan
 end, {
 	placeholder = "10"
 	})
+	
+MiscSettings:Cheat("Button", "Print Current Speed", function()
+print(speed.value)
+end)
 	
 MiscSettings:Cheat(
 	"Checkbox", -- Type
