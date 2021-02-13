@@ -92,7 +92,7 @@ local CreditsCreator = CreditsCategory:Sector("Finity Library Creator")
 local CreditsMaker = CreditsCategory:Sector("Scripts Creator")
 local CreditsMaker2 = CreditsCategory:Sector("Credits")
 local CreditsMaker3 = CreditsCategory:Sector("Discord Server")
-local VersionSettings = UpdateLogCategory:Sector("Version + Most Recent Feature(s)")
+local VersionSettings = UpdateLogCategory:Sector("Version")
 local ReExecuteSettings = ReExecuteCategory:Sector("ReExecute")
 
 CreditsMaker:Cheat("Label", "Terebi @ v3rmillion.net")
@@ -104,7 +104,7 @@ CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Se
 VersionSettings:Cheat("Label", "v0.11")
 VersionSettings:Cheat("Label", "Look In Discord For Changelogs")
 
-local speed = MiscSettings:Cheat("Slider", "Test Speed", function(Test)
+local speed = MiscSettings:Cheat("Slider", "Teleportation Speed:", function(Test)
 end, {min = 50, max = 300}), {
 	placeholder = "200"
 	}
