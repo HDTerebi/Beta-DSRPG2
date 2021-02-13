@@ -10,7 +10,7 @@ VirtualUser:CaptureController()
 VirtualUser:ClickButton2(Vector2.new())
 end)
 
-local travelSpeed = 160
+local travelSpeed = 200
 local Mouse = game.Players.LocalPlayer:GetMouse()
 
 local Katana = "Katana"
