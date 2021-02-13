@@ -101,8 +101,8 @@ CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker2:Cheat("Label", "Chim#2575 @ discord.gg - Auto Farm Mob Maker")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.08")
-VersionSettings:Cheat("Label", "Fixed Noclip + TP Issues FOR GOOD...HOPEFULLY!")
+VersionSettings:Cheat("Label", "v0.09")
+VersionSettings:Cheat("Label", "Changelog In Discord")
 
 FarmingSettings:Cheat(
 	"Checkbox", -- Type
@@ -221,7 +221,7 @@ end, {
 	})
 
 TeacherSettings:Cheat("Dropdown", "Teacher NPC TP", function(Value4)
-local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Teacher[Value4].Position).magnitude
+local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Teacher[Value4].HumanoidRootPart.Position).magnitude
 tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Teacher[Value4]:FindFirstChild("HumanoidRootPart").Position)})
@@ -239,7 +239,7 @@ end, {
 	})
 
 DroppedSettings:Cheat("Dropdown", "Spawned NPC TP", function(Value5)
-local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Spawnables[Value5].Position).magnitude
+local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.NPC.Spawnables[Value5].HumanoidRootPart.Position).magnitude
 tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.NPC.Spawnables[Value5]:FindFirstChild("HumanoidRootPart").Position)})
@@ -261,7 +261,7 @@ end, {
 })
 	
 MobsSettings:Cheat("Dropdown", "Mob TP", function(Value6)
-local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.Live[Value6].Position).magnitude
+local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - game.Workspace.Live[Value6].HumanoidRootPart.Position).magnitude
 tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/travelSpeed), Enum.EasingStyle.Linear)
 
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(game.Workspace.Live[Value6]:FindFirstChild("HumanoidRootPart").Position)})
