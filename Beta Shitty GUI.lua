@@ -65,6 +65,25 @@ local AreasAndTowns = {}
 for i,v in pairs(game.Workspace.AreaPlaces:GetChildren()) do
        table.insert(AreasAndTowns, v.Name)
     end
+	
+local Players = {}
+local plrs = game:GetService("Players")
+ 
+for _, v in next, plrs:GetChildren() do
+    table.insert(Players, v.Name)
+end
+ 
+plrs.PlayerRemoving:Connect(function(value)
+    for i, v in next, Players do
+        if v == value.Name then
+            table.remove(Players, i)
+        end
+    end
+end)
+ 
+plrs.PlayerAdded:Connect(function(value)
+    table.insert(Players, value.Name)
+end)
 
 local Finity = loadstring(game:HttpGet("https://pastebin.com/raw/xpT46ucU"))()
    local FinityWindow = Finity.new(true)
@@ -99,7 +118,7 @@ CreditsMaker:Cheat("Label", "Terebi#0001 @ discord.gg")
 CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.11")
+VersionSettings:Cheat("Label", "v0.14")
 VersionSettings:Cheat("Label", "Look In Discord For Changelogs")
 
 local speed = MiscSettings:Cheat("Slider", "Teleportation Speed:", function(Test)
@@ -367,10 +386,12 @@ end
 end
 )
 
-local Victim = MobsSettings:Cheat("Textbox", "Current Victim Selected", function(Value6)
-end,{
-	placeholder = "Victim Name Here"
-	})
+local Victim = MobsSettings:Cheat("Dropdown", "Current Victim Selected", function(Value6)
+_G.SelectedPlayer = Value6
+end, {
+    options = Players,
+    default = Players[1]
+})
 
 MobsSettings:Cheat(
 	"Checkbox", -- Type
