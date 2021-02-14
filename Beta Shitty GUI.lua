@@ -99,7 +99,7 @@ CreditsMaker:Cheat("Label", "Terebi#0001 @ discord.gg")
 CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.12")
+VersionSettings:Cheat("Label", "v0.13")
 VersionSettings:Cheat("Label", "Look In Discord For Changelogs")
 
 local speed = MiscSettings:Cheat("Slider", "Teleportation Speed:", function(Test)
