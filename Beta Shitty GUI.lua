@@ -99,7 +99,7 @@ CreditsMaker:Cheat("Label", "Terebi#0001 @ discord.gg")
 CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.11")
+VersionSettings:Cheat("Label", "v0.12")
 VersionSettings:Cheat("Label", "Look In Discord For Changelogs")
 
 local speed = MiscSettings:Cheat("Slider", "Teleportation Speed:", function(Test)
@@ -350,6 +350,37 @@ MobsSettings:Cheat(
 		pcall(function()
 		for i,v in pairs(game.Workspace.Live:GetChildren()) do
         if v:FindFirstChild("HumanoidRootPart") and v.Name == mob.value then
+            if v.Humanoid.Health > 1 then
+                repeat wait()
+local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).magnitude
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distance/speed.value), Enum.EasingStyle.Linear)
+
+	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(v:FindFirstChild("HumanoidRootPart").Position + v:FindFirstChild("HumanoidRootPart").CFrame.lookVector * -1.5)})
+		tween:Play()
+        game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
+    until v.Humanoid.Health <= 0
+            end
+        end
+end
+end)
+end
+end
+)
+
+local Victim = MobsSettings:Cheat("Textbox", "Current Victim Selected", function(Value6)
+end,{
+	placeholder = "Victim Name Here"
+	})
+
+MobsSettings:Cheat(
+	"Checkbox", -- Type
+	"Farm Selected Player", -- Name
+	function(MobFarmVictim) -- Callback function
+		Spam999 = MobFarmVictim
+		while Spam999 do wait()
+		pcall(function()
+		for i,v in pairs(game.Workspace.Live:GetChildren()) do
+        if v:FindFirstChild("HumanoidRootPart") and v.Name == Victim.value then
             if v.Humanoid.Health > 1 then
                 repeat wait()
 local distance = (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).magnitude
