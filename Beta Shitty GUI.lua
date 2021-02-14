@@ -1,3 +1,4 @@
+if game.PlaceId == 4734949248 then
 if not game:IsLoaded() then
 	local Loading = Instance.new("Message",workspace)
 	Loading.Text = 'Waiting For The Game To Load....'
@@ -713,3 +714,8 @@ Text = "Made By Terebi#0001",
 Icon = "rbxassetid://5472203252";
 Duration = 6;
 })
+end
+
+if game.PlaceId == 5450225021 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/HDTerebi/Beta-DSRPG2/master/Ranked"))()
+end
