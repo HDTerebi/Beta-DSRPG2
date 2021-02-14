@@ -436,10 +436,6 @@ warn(game.ReplicatedStorage.Values[game.Players.LocalPlayer.Name].BreathingLvl.V
 warn(game.ReplicatedStorage.Values[game.Players.LocalPlayer.Name].ExerciseLvl.Value)
 end)
 
-FarmingSettings:Cheat("Button", "Print Player Level", function()
-warn(game.ReplicatedStorage.Values[game.Players.LocalPlayer.Name].Level.Value)
-end)
-
 InstantQuestsSettings:Cheat("Label", "Spoof Click Any Of The Following 5 Items")
 
 InstantQuestsSettings:Cheat("Dropdown", "Quest NPC", function(Value7)
@@ -674,6 +670,18 @@ MiscSettings:Cheat(
 		for i,v in pairs(game.Lighting:GetDescendants()) do
 		v:Destroy()
 		end
+		end
+		end
+)
+
+MiscSettings:Cheat(
+	"Checkbox", -- Type
+	"Auto Correct Level & Yen", -- Name
+	function(Derp) -- Callback function
+		Spam8888 = Derp
+		while Spam8888 do wait()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUDGui.Level.Text = "Level: "..game.ReplicatedStorage.Values[game.Players.LocalPlayer.Name].Level.Value
+			game:GetService("Players").LocalPlayer.PlayerGui.HUDGui.Money.Text = "¥"..game.ReplicatedStorage.Values[game.Players.LocalPlayer.Name].Money.Value
 		end
 		end
 )
