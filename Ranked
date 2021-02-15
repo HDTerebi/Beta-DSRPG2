@@ -690,7 +690,7 @@ local s = Instance.new("Sound")
 
 s.Name = "Sound"
 s.SoundId = "http://www.roblox.com/asset/?id=2954715256" -- Type your music ID here
-s.Volume = 1
+s.Volume = 10
 s.Pitch = 1
 s.Looped = true
 s.archivable = false
