@@ -119,7 +119,7 @@ CreditsMaker:Cheat("Label", "Terebi#0001 @ discord.gg")
 CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.14")
+VersionSettings:Cheat("Label", "v0.17")
 VersionSettings:Cheat("Label", "Look In Discord For Changelogs")
 
 local speed = MiscSettings:Cheat("Slider", "Teleportation Speed:", function(Test)
@@ -704,6 +704,29 @@ MiscSettings:Cheat(
 		while Spam8888 do wait()
 		game:GetService("Players").LocalPlayer.PlayerGui.HUDGui.Level.Text = "Level: "..game.ReplicatedStorage.Values[game.Players.LocalPlayer.Name].Level.Value
 			game:GetService("Players").LocalPlayer.PlayerGui.HUDGui.Money.Text = "¥"..game.ReplicatedStorage.Values[game.Players.LocalPlayer.Name].Money.Value
+		end
+		end
+)
+
+local speed2 = MiscSettings:Cheat("Slider", "Aimbot Range:", function(Test2)
+end, {min = 50, max = 400}), {
+	placeholder = "160"
+	}
+	
+speed2.value = "160"
+
+MiscSettings:Cheat(
+	"Checkbox", -- Type
+	"Move And Skill Aimbot", -- Name
+	function(Aimbot) -- Callback function
+		AimSpam = Aimbot
+		while AimSpam do wait()
+		for i,v in pairs(game.Workspace.Live:GetChildren()) do
+    if v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position and (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude < speed2.value) then
+        game:GetService("ReplicatedStorage").All.Events.TargetChanged:FireServer(v.HumanoidRootPart.Position)
+        break
+    end
+		end
 		end
 		end
 )
