@@ -1,3 +1,4 @@
+if game.PlaceId == 4734949248 then
 if not game:IsLoaded() then
 	local Loading = Instance.new("Message",workspace)
 	Loading.Text = 'Waiting For The Game To Load....'
@@ -118,7 +119,7 @@ CreditsMaker:Cheat("Label", "Terebi#0001 @ discord.gg")
 CreditsCreator:Cheat("Label", "detourious @ v3rmillion.net")
 CreditsCreator:Cheat("Label", "deto#7612 @ discord.gg")
 CreditsMaker3:Cheat("Label", "https://discord.gg/npFg3k4 - Shitty DSRPG 2 GUI Server")
-VersionSettings:Cheat("Label", "v0.14")
+VersionSettings:Cheat("Label", "v0.17")
 VersionSettings:Cheat("Label", "Look In Discord For Changelogs")
 
 local speed = MiscSettings:Cheat("Slider", "Teleportation Speed:", function(Test)
@@ -410,11 +411,6 @@ tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new((distan
 	    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(v:FindFirstChild("HumanoidRootPart").Position + v:FindFirstChild("HumanoidRootPart").CFrame.lookVector * -1.5)})
 		tween:Play()
         game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
-		if game:GetService("ReplicatedStorage").Values[game.Players.LocalPlayer.Name].Race.Value == "Demon" then
-    game.ReplicatedStorage.All.Events.System:FireServer("DemonExecute", Victim.value)
-    else
-    game.ReplicatedStorage.All.Events.System:FireServer("HumanExecute", Victim.value)
-    end
     until v.Humanoid.Health <= 0
             end
         end
@@ -712,9 +708,48 @@ MiscSettings:Cheat(
 		end
 )
 
+local speed2 = MiscSettings:Cheat("Slider", "Aimbot Range:", function(Test2)
+end, {min = 50, max = 400}), {
+	placeholder = "160"
+	}
+	
+speed2.value = "160"
+
+MiscSettings:Cheat(
+	"Checkbox", -- Type
+	"Move And Skill Aimbot", -- Name
+	function(Aimbot) -- Callback function
+		AimSpam = Aimbot
+		while AimSpam do wait()
+		for i,v in pairs(game.Workspace.Live:GetChildren()) do
+    if v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position and (game.Workspace.Live[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude < speed2.value) then
+        game:GetService("ReplicatedStorage").All.Events.TargetChanged:FireServer(v.HumanoidRootPart.Position)
+        break
+    end
+		end
+		end
+		end
+)
+
 game.StarterGui:SetCore("SendNotification", {
 Title = "Beta DSRPG 2 Gui";
 Text = "Made By Terebi#0001",
 Icon = "rbxassetid://5472203252";
 Duration = 6;
 })
+
+ mt = getrawmetatable(game)
+        setreadonly(mt,false)
+        old = mt.__namecall
+        mt.__namecall = newcclosure(function(self,...)
+            local args = {...}
+            if getnamecallmethod() == "FireServer" and args[1] == "stringb" then
+                return nil
+            end
+            return old(self,...)
+        end)
+end
+
+if game.PlaceId == 5450225021 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/HDTerebi/Beta-DSRPG2/master/Ranked"))()
+end
