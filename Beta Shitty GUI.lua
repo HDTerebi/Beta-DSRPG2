@@ -578,22 +578,6 @@ end
 
 MiscSettings:Cheat(
 	"Checkbox", -- Type
-	"God Mode Enabled", -- Name
-	function(GodMode) -- Callback function
-		Spam7 = GodMode
-		while Spam7 do wait()
-		for _,v in pairs(game.Workspace.Live[game.Players.LocalPlayer.Name]:GetDescendants()) do
-		if v.Name == "Defense" then
-		game.Workspace.Live[game.Players.LocalPlayer.Name].Detection.Disabled = true
-        game.Workspace.Live[game.Players.LocalPlayer.Name].Buffs.Defense:Destroy()
-		end
-		end
-		end
-		end
-)
-
-MiscSettings:Cheat(
-	"Checkbox", -- Type
 	"No Attack CD Enabled", -- Name
 	function(NoCD) -- Callback function
 		Spam8 = NoCD
