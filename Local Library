@@ -114,7 +114,7 @@ local function initLibrary()
 	UserInputService.InputBegan:Connect(function(Input, gameProcessedEvent)
     	if gameProcessedEvent then return end
 
-    	if Input.KeyCode == Enum.KeyCode.RightControl then
+    	if Input.KeyCode == Enum.KeyCode.RightAlt then
         	gui.Enabled = not gui.Enabled
     	end
 	end)
@@ -637,7 +637,7 @@ local function initLibrary()
                     [Enum.KeyCode.LeftShift] = "L-Shift",
                     [Enum.KeyCode.RightShift] = "R-Shift",
                     [Enum.KeyCode.LeftControl] = "L-Ctrl",
-                    [Enum.KeyCode.RightControl] = "R-Ctrl",
+                    [Enum.KeyCode.Control] = "R-Ctrl",
                     [Enum.KeyCode.LeftAlt] = "L-Alt",
                     [Enum.KeyCode.RightAlt] = "R-Alt",
                     [Enum.KeyCode.CapsLock] = "CAPS",
